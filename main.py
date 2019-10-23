@@ -23,8 +23,10 @@ def start():
             imgLen = os.stat('newImage.bmp').st_size
             newImage = open('newImage.bmp', 'rb')
             decrypt(degree, toRead, imgLen, newImage, systemXernya=54, byte=8)
+
         elif choise == 3:
             break
+        
         else:
             print("Unknown command!")
 
