@@ -1,8 +1,15 @@
 import os
 import sys
 from createMasks import createMasks
+from PIL import Image
 
-def encrypt(text, degree, startImage, newImage, imgLen, systemXernya, byte):
+def encrypt(text, degree, start, new, systemXernya, byte):
+    img = Image.open(start)
+    img.show()
+
+    startImage = open(start, 'rb')
+    newImage = open(new, 'wb')
+    imgLen = os.stat(start).st_size
 
     textLen = len(text)
     
@@ -43,5 +50,10 @@ def encrypt(text, degree, startImage, newImage, imgLen, systemXernya, byte):
 
     newImage.write(startImage.read())
 
+    
+
     startImage.close()
     newImage.close()
+
+    img = Image.open("newImage.bmp")
+    img.show()

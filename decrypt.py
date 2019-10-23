@@ -2,7 +2,10 @@ import os
 import sys
 from createMasks import createMasks
 
-def decrypt(degree, toRead, imgLen, newImage, systemXernya, byte):
+def decrypt(degree, toRead, new, systemXernya, byte):
+
+    newImage = open(new, 'rb')
+    imgLen = os.stat(new).st_size
 
     if toRead >= imgLen * degree / byte - systemXernya:
         print("Too long read")
